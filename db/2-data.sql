@@ -1,0 +1,18 @@
+INSERT INTO films (title, month, day, year) VALUES 
+    ('I Am Mother', 01, 25, 2019),
+    ('How to Train Your Dragon: The Hidden World', 02, 22, 2019),
+    ('Us', 03, 22, 2019),
+    ('Dumbo', 03, 29, 2019),
+    ('Hellboy', 04, 12, 2019),
+    ('Avengers: Endgame', 04, 26, 2019),
+    ('Pokémon Detective Pikachu', 05, 10, 2019),
+    ('Aladdin', 05, 24, 2019),
+    ('Toy Story 4', 06, 21, 2019),
+    ('Spider-Man: Far From Home', 07, 02, 2019),
+    ('The Lion King', 07, 02, 2019),
+    ('The Angry Birds Movie 2', 08, 13, 2019),
+    ('Joker', 09, 04, 2019),
+    ('Terminator: Dark Fate', 10, 01, 2019),
+    ('Frozen II', 11, 22, 2019),
+    ('Star Wars: The Rise of Skywalker', 12, 20, 2019),
+    ('Cats', 12, 20, 2019);

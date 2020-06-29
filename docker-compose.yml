@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  movies:
+    build: 
+      context: ./movies
+      dockerfile: Dockerfile
+    volumes:
+     - ./movies:/app
+    ports:
+      - "5000:80"
+    networks:
+      - front-tier
+      - back-tier
+  db:
+    image: postgres:latest
+    restart: always
+    container_name: db
+    environment:
+      POSTGRES_USER: "username"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: 'movies'
+    volumes:
+      - ./db/1-tables.sql:/docker-entrypoint-initdb.d/1-tables.sql
+      - ./db/2-data.sql:/docker-entrypoint-initdb.d/2-data.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - back-tier
+
+volumes:
+  db-data:
+
+networks:
+  front-tier:
+  back-tier:

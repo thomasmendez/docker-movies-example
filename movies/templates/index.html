@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <base href="/index.html">
+        <link rel='stylesheet' href="{{ url_for('static',filename='stylesheets/style.css') }}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div id="content-container">
+          <div id="content-container-center">
+
+            <h3>{{title}}</h3>
+
+            <form id="movie" name="movie" method="POST" enctype=multipart/form-data action="/">
+                <label for="movie_title">Movie Title:</label>
+                <input type="text" id="movie_title" name="movie_title"><br><br>
+                <label for="release_date">Release Date:</label>
+                <input type="date" id="release_date" name="release_date"><br><br>
+                <label for="file_image">Movie Image (optional): </label><br><br>
+                <input type ='file' class='file-input' name='file_image' id='file_image'><br><br>
+                <input type="submit" value="Submit">
+            </form>
+
+            <div id="result"></div>
+
+            <div id="hostname">
+                Processed by container ID {{hostname}}
+            </div>
+          </div>
+        </div>
+
+        {% if uploaded %}
+        <script type="text/javascript">
+            
+            var uploaded = "{{uploaded}}"
+
+            if (uploaded == "noImage") {
+                $("#result").html("<p class='text-success'>Movie was inserted</p>")
+            } else if (uploaded == "Image") {
+                $("#result").html("<p class='text-success'>Movie was added with image</p>")
+            } else if (uploaded == "invalidFile") {
+                $("#result").html("<p class='text-danger'>Incorrect file type</p><p class='text-danger'>Please try again</p>")
+            }
+            
+        </script>
+        {% endif %}
+
+      </body>
+</html>
